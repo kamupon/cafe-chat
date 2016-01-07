@@ -1,0 +1,14 @@
+target
+.settings
+.classpath
+.project
+
+server/target
+server/.settings
+server/.project
+server/.classpath
+
+model/target
+model/.settings
+model/.project
+model/.classpath
