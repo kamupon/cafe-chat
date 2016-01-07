@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+    <display-name>portal-server</display-name>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <listener>
+        <listener-class>
+            org.apache.tiles.extras.complete.CompleteAutoloadTilesListener
+        </listener-class>
+    </listener>
+  
+    <!-- Servlet だと JSPは使えないので注意
+        http://qiita.com/opengl-8080/items/f4c25ad671e8a6dac743#4-2
+    -->
+    <filter>
+        <filter-name>Jersey MVC JSP Filter</filter-name>
+        <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>example.server.MyApplication</param-value>
+        </init-param>
+
+        <!-- config -->
+        <init-param>
+            <param-name>jersey.config.servlet.filter.forwardOn404</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.servlet.filter.staticContentRegex</param-name>
+            <param-value>/(css|js|img)/.*</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Jersey MVC JSP Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- セッションの有効期限 (単位: 分) -->
+    <session-config>
+      <session-timeout>10080</session-timeout>
+    </session-config>
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/view/500.jsp</location>
+    </error-page>
+
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <el-ignored>false</el-ignored>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <include-prelude>/WEB-INF/view/common/taglib-prefix.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+</web-app>
