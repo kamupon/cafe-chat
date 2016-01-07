@@ -14,7 +14,7 @@ import org.glassfish.jersey.server.mvc.jsp.JspMvcFeature;
 public class MyApplication extends ResourceConfig {
     
     public MyApplication(){
-        packages("example.server");
+        packages("net.kamupon.chat.server");
         
         register(JspMvcFeature.class);
         property(JspMvcFeature.TEMPLATE_BASE_PATH, "/WEB-INF/view");
