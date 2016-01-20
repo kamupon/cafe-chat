@@ -32,10 +32,8 @@
         <filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
-            <param-value>example.server.MyApplication</param-value>
+            <param-value>net.kamupon.chat.server.MyApplication</param-value>
         </init-param>
-
-        <!-- config -->
         <init-param>
             <param-name>jersey.config.servlet.filter.forwardOn404</param-name>
             <param-value>true</param-value>
