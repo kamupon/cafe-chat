@@ -21,6 +21,28 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.lesscss</groupId>
+				<artifactId>lesscss-maven-plugin</artifactId>
+				<version>1.7.0.1.1</version>
+				<configuration>
+					<sourceDirectory>${project.basedir}/src/main/webapp/less</sourceDirectory>
+					<outputDirectory>${project.basedir}/src/main/webapp/css/dest</outputDirectory>
+					<compress>true</compress>
+					<watch>false</watch>
+					<includes>
+						<include>cafe-chat.less</include>
+					</includes>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
@@ -67,14 +89,14 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>net.kamupon.chat</groupId>
 			<artifactId>cafe-chat-model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
