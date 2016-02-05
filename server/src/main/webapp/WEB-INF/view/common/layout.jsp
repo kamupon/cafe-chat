@@ -15,6 +15,9 @@
         <meta http-equiv="expires" content="0" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
+		<%-- 全画面共通のstylesheet --%>
+        <link media="all" rel="stylesheet" href="<c:url value='/css/lib/bootstrap.min.css'/>?d=${currentMilltime}"/>
+            
 		<%-- 画面固有のstylesheet --%>
         <tiles:importAttribute name="stylesheets" ignore="true" />
         <c:forEach var="stylesheet" items="${stylesheets}">
@@ -23,6 +26,7 @@
         </c:forEach>
 		
 		<%-- 全画面共通のjavascript --%>
+		<script src="<c:url value='/js/lib/bootstrap.min.js'/>?d=${currentMilltime}"></script>
 		<script src="<c:url value='/js/lib/react.js'/>?d=${currentMilltime}"></script>
         
 		<%-- 画面固有のjavascript --%>
@@ -41,7 +45,7 @@
         <jsp:include page="../common/_header.jsp" />
         <jsp:include page="../common/_message.jsp" />
         
-        <div id="main">
+        <div id="main" class="container">
             <tiles:insertAttribute name="content" />
         </div>
     </body>
