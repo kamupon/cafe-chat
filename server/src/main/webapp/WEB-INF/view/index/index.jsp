@@ -12,6 +12,11 @@
     </tiles:putAttribute>
         
     <tiles:putAttribute name="content" type="string">
-        Hello, World
+        <div class="col-lg-3">
+            menu
+        </div>
+        <div class="col-lg-9">
+            contents
+        </div>
     </tiles:putAttribute>
 </tiles:insertTemplate>

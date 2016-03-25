@@ -1,15 +1,24 @@
 @import "mixins.less";
 
+@main-color: #F89406;
+@base-color: #FDE3A7;
+
 html {
 	height: 100%;
 }
 
 body {
-
+    background: lighten(@base-color, 14%);
 }
 
 header {
-
+    background: @main-color;
+    color: white;
+	font-size: 25px;
+	
+	height: 60px;
+	padding-left: 30px;
+    line-height: 50px;
 }
 
 footer {
