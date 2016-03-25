@@ -2,6 +2,9 @@ target
 .settings
 .classpath
 .project
+*.iml
+
+.idea/*
 
 server/target
 server/.settings
