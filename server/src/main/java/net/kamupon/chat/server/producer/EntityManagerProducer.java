@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
- * EntityManagerのプロデューサ
+ * EntityManagerのプロデューサ.
  * ------------------------------------
  * @author honda
  */

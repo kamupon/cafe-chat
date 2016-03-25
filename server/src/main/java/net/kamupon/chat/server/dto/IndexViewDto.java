@@ -3,7 +3,7 @@ package net.kamupon.chat.server.dto;
 import java.io.Serializable;
 
 /**
- * メニュー画面用のビューDTO
+ * メニュー画面用のビューDTO.
  * -------------------------------------
  * @author honda
  */

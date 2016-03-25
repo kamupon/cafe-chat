@@ -6,7 +6,7 @@ import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.mvc.jsp.JspMvcFeature;
 
 /**
- * サーバの起動時設定
+ * サーバの起動時設定.
  * ---------------------------------
  * @author honda
  */
