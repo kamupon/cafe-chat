@@ -17,6 +17,8 @@
         
 		<%-- 全画面共通のstylesheet --%>
         <link media="all" rel="stylesheet" href="<c:url value='/css/lib/bootstrap.min.css'/>?d=${currentMilltime}"/>
+        <link media="all" rel="stylesheet" href="<c:url value='/css/lib/font-awesome.min.css'/>?d=${currentMilltime}"/>
+        <link media="all" rel="stylesheet" href="<c:url value='/css/dest/cafe-chat.css'/>?d=${currentMilltime}"/>
             
 		<%-- 画面固有のstylesheet --%>
         <tiles:importAttribute name="stylesheets" ignore="true" />
@@ -26,6 +28,7 @@
         </c:forEach>
 		
 		<%-- 全画面共通のjavascript --%>
+		<script src="<c:url value='/js/lib/jquery-2.2.2.min.js'/>?d=${currentMilltime}"></script>
 		<script src="<c:url value='/js/lib/bootstrap.min.js'/>?d=${currentMilltime}"></script>
 		<script src="<c:url value='/js/lib/react.js'/>?d=${currentMilltime}"></script>
         
