@@ -129,6 +129,17 @@ localhost
 ~/git/github/cafe-chat などに取得してきたプロジェクトをIDEにインポートする.
 ## GlassFishサーバの起動
 予めGlassFishのドメインdomain1を起動しておく.
+
+- Eclipseの場合
+ビューServersより Payara GlassFishを選択し、Start（起動）をおこなう.
+
+- Command Lineの場合
+
+```bash
+cd {Payaraホーム}/glassfish
+bin/asadmin start-domain domain1
+```
+
 ## Mavenによるソースコード起動
 EclipseのRun Configurations>Mavenにて以下の実行構成を作成する.
  - base project
