@@ -91,6 +91,22 @@ ll
 基本的には[この手順](https://blogs.oracle.com/yosshi/entry/glassfish%E3%81%A8eclipse%E3%81%AE%E9%80%A3%E6%90%BA%E6%96%B9%E6%B3%95%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)に従います.
 注意点は 「Payara」を使用するので、「アプリケーション・サーバ・ディレクトリ」をPayaraに設定します.
 
+### domain1: 管理者ユーザの作成
+http://www.pasokuma.net/dev/java/servlet/glassfishadm.html
+
+```bash
+cd {Payaraホーム}/glassfish
+bin/asadmin
+
+asadmin> change-admin-password     
+Enter admin user name [default: admin]>admin
+Enter the admin password> (そのままEnter)
+Enter the new admin password> admin
+Enter the new admin password again> admin
+Command change-admin-password executed successfully.
+asadmin> exit
+```
+
 ### Postgres JDBCドライバの配置
 ${PAYARA_HOME}/glassfish/domains/domain1/lib/ext 配下にドライバpostgresql-9.4-1204.jdbc42.jarを配置します.
 次以降のステップでDataSourceクラスを使用できるようにするために配置します.
@@ -99,7 +115,23 @@ ${PAYARA_HOME}/glassfish/domains/domain1/lib/ext 配下にドライバpostgresql
 ミドルウェアのGlassFishに、接続するDBを登録します.
 GlassFishの管理コンソール画面に遷移します（デフォルトは http://localhost:4848）.
 
-#### JDBC Connection Pools
+#### 自動で実行する場合
+GlassFishの管理コンソールより
+
+1. 左メニュー Resourcesを選択する
+2. 右画面より Add Resourcesボタンを押す.
+3. ファイルを選択し、ソースコードの以下ファイルを選択する。
+
+``src/main/webapp/WEB-INF/glassfish-resources.xml``
+
+4. 右メニューよりResources＞JDBC より以下2つが作成されていることを確認する。
+- JDBC Resources
+jdbc/test
+- JDBC Connection Pools
+pool/test
+
+#### 手動で実行する場合
+##### JDBC Connection Pools
  - Pool Name
 pool/test
  - Resource Type
@@ -118,7 +150,7 @@ localhost
   - Password
 （作成したユーザパスワード）
 
-#### JDBC Resource
+##### JDBC Resource
  - JNDI Name
  jdbc/test
  - Pool Name
